@@ -65,3 +65,86 @@ print(persondata.popitem())
 
 print(persondata)
 #result = {'name': 'deewakar', 'age': '22'}
+
+#we can also check that a element in the dictionaries or not with help of in operater
+print("state" in persondata)
+#result = False
+
+#we can also check the keys of the dictionaries
+print(persondata.keys())
+#result = dict_keys(['name', 'age'])
+
+
+#we can also see the dictionaries in form of list
+print(list(persondata.keys()))
+#result = ['name','age']
+
+#we cna also do the same things with values
+print(persondata.values())
+
+#result = dict_values(['deewakar', '22'])
+
+#we can also see the dictionaries in form of list
+
+print(list(persondata.values()))
+
+#result = ['deewakar','22']
+
+#we can also print items in list
+print(list(persondata.items()))
+
+#result = [('name', 'deewakar'), ('age', '22')]
+
+#we can also use len function to check lenght of the dictionaries
+
+print(len(persondata))
+
+#result = 2
+
+
+###########################################{    HOW TO WORK WITH SETS      ]#################################
+
+set1 = {"deewakr","kishan","vedant"}
+set2 = {"kishan"}
+#we can also intersection to find the comman element in sets
+intersect  = set1 & set2
+print(intersect)
+
+#result = {'kishan'}
+
+#we can also intersection to find the union of the sets
+
+set3 = {"sherya","yashvi","vadhi" ,"angle priya","kishan"}
+
+union  = set1 | set3
+print(union)
+
+#result = {'deewakar', 'kishan','vedant','sherya','yashvi','vidhi','angle priya'}
+
+#we can also check the diffence between to sets using - operater
+
+diffence = set1 - set3
+print(diffence)
+
+#result = {'deewakar' , 'vedant'}
+
+#we can check the set is superset of other or not
+superset = set1 > set3
+
+print(superset)
+
+#result = false
+
+superset1 = set1 < set2
+
+print(superset1)
+
+#result = 
+
+
+
+ 
+
+
+
+
