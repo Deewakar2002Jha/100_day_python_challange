@@ -1,22 +1,13 @@
-class Animal:
-    #defing the function
-    def walk(self):
-        print("walking ...")
-        
-class Dog(Animal):
-    #now lets create constructer
-    def __init__(self, name,age):
-            self.name = name
-            self.age = age
-    #defining method
-    def bark(self):
-        print("woof!")
+ 
+import argparse
 
-rocko = Dog("rocko" ,8)
+parser = argparse.ArgumentParser{
+    description='this program print the name of my dogs'
+}
+parser.add_argument('-c','--color',metavar='color',
+    required= True, help='the color to search for')
 
-print(type(rocko))
-#result = <class '__main__.Dog'>
-print(rocko.name)
-print(rocko.age)
+args = parser.parse_args()
 
-rocko.walk()
+
+print(args.color)
