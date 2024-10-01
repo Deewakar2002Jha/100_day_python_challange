@@ -1,60 +1,75 @@
 #BALCKJACKGAME USING PYTHON
 
 import random
+"""             BLACKJACK - CARD CLASS                  """
+class Card:
+    def __init__(self ,suit ,rank):
+        self.suit = suit
+        self.rank = rank
+    def __str__(self):
+        return f"{self.rank['rank']} of  {self.suit}"
+"""             BLACKJACK - DECK CLASS             """
 
-cards = []
-suits = ["spades","clubs","hearts","diamonds"]
-ranks = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"]
-for suit in suits:
-    for rank in ranks:
-        cards.append([suit , rank])
+class Deck:
+        def __init__(self):
+            self.cards = []
+            suits = ["spades","clubs","hearts","diamonds"]
+            #ranks = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"]
+            ranks = [
+                        {"rank" : "A","value":11},
+                        {"rank" : "2","value":2},
+                        {"rank" : "3","value":3},
+                        {"rank" : "4","value":4},
+                        {"rank" : "5","value":5},
+                        {"rank" : "6","value":6},
+                        {"rank" : "7","value":7},
+                        {"rank" : "8","value":8},
+                        {"rank" : "9","value":9},
+                        {"rank" : "10","value":10},
+                        {"rank" : "J","value":10},
+                        {"rank" : "Q","value":10},
+                        {"rank" : "K","value":10},
+                    ]
+            for suit in suits:
+                for rank in ranks:
+                    self.cards.append(Card(suit , rank))
 
 
-def shuffle():
-    random.shuffle(cards)
-def deal(number):
-    cards_dealt = []
-    for x in range(number):
-        card = cards.pop()
-        cards_dealt.append(card)
-    return cards_dealt
+        def shuffle(self):
+            if len(self.cards)  > 1:
+                    random.shuffle(self.cards)
+        def deal(self,number):
+            cards_dealt = []
+            for x in range(number):
+                if len(self.cards) > 0:
+                    card = self.cards.pop()
+                    cards_dealt.append(card)
+            return cards_dealt
+"""card1 = Card("hearts",{"rank": "j" , "value": 10})
+print(card1)
+deck1 = Deck()
+deck2 = Deck()
+deck2.shuffle()
+print(deck1.cards)
+print(deck2.cards)"""
 
-#print(cards)
-"""
-RESULT=
+"""             BLACKJACK - HARD CLASS                  """
 
-[['hearts', 'J'], ['diamonds', '2'], ['clubs', '3'], ['diamonds', '3'],
-['diamonds', 'K'], ['spades', 'Q'], ['clubs', '5'], ['clubs', '8'], ['hearts', '6']
-, ['hearts', '10'], ['diamonds', '9'], ['diamonds', '6'], ['hearts', '3'],
-['clubs', 'K'], ['spades', 'K'], ['spades', '10'], ['spades', '2'], ['spades', '9'],
-['spades', '7'], ['diamonds', 'Q'], ['diamonds', '8'], ['spades', 'A'], ['clubs', '2'],
-['clubs', '10'], ['diamonds', 'J'], ['hearts', '7'], ['diamonds', '4'], ['spades', '8'],
-['clubs', 'A'], ['spades', '5'], ['clubs', '7'], ['diamonds', '10'], ['diamonds', '5'],
-['spades', 'J'], ['hearts', '4'], ['diamonds', '7'], ['clubs', '9'], ['hearts', '5'],
-['clubs', 'Q'], ['hearts', 'Q'], ['clubs', '4'], ['diamonds', 'A'], ['hearts', 'A'],
-['spades', '3'], ['hearts', '2'], ['spades', '6'], ['hearts', '8'], ['clubs', 'J'],
-['hearts', '9'], ['spades', '4'], ['hearts', 'K'], ['clubs', '6']]
-"""
+class Hand:
+    def __init__(self ,dealer = False ):
+        self.cards = []
+        self.value = 0
+        self.dealer = dealer
+    def add_card(self,card_list):
+        self.cards.extend(card_list)
+deck = Deck()
+deck.shuffle()
 
-#print(card)
-#result = ['spades', '3']
+hand = Hand()
+hand.add_card(deck.deal(2))
+print(hand.cards)
 
-shuffle()
 
-cards_dealt= deal(2)
 
-card = cards_dealt[0]
-rank = card[1]
 
-if rank == "A":
-    value = 11
-elif rank == "J" or rank == "Q" or rank == "K":
-    value = 10
-else:
-    value = rank
-
-rank_dict = {"rank":rank , "value":value}
-
-print(rank ,value)
-"""START AT 3:45:54"""
 
