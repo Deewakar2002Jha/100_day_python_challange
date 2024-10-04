@@ -52,3 +52,27 @@ item = mylist.pop()
 print(item)
 print(mylist)
 #result=["banana","blueberry","cherry","apple"]
+#we can also delete any element in list
+item = mylist.remove("cherry")
+print(item)
+print(mylist)
+#result= ["banana","blueberry","apple"]
+
+#we can also delete all element in list with help of clear fucntion
+item = mylist.clear()
+print(item)
+print(mylist)
+#result = []
+mylist2 = ["banana","blueberry","apple"]
+
+item = mylist2.reverse()
+print(mylist2)
+#result = ["apple","banana","blueberry"]
+
+#we can also sorting in list by default its acending order
+
+number = [3,2,5,6,1]
+number.sort()
+print(number)
+
+#result = [1,2,3,4,5,6]
