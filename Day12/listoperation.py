@@ -19,3 +19,8 @@ if "banana" in mylist:
     print("yes")
 else:
     print("no")
+    
+    
+# Squaring each number using the map function
+numbers_power_2 = list(map(lambda n: n**2, numbers))
+print(numbers_power_2)  # Output: [1, 4, 9, 16, 25]
